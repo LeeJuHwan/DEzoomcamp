@@ -1,7 +1,7 @@
 # DEzoomcamp
 Data Engineering Zoomcamp 2023
 
-## Dockerfile & Piepeline
+## TIL
 - [ ] Basic & Set up
 
     > Docker
@@ -10,6 +10,6 @@ Data Engineering Zoomcamp 2023
 
     > Docker_SQL
 
-    [Docker & Postgres Set up](./Docker_SQL/README.md)
+    [Docker & Postgres set up](./Docker_SQL/README.md)
 
 
