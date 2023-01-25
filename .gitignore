@@ -2,3 +2,5 @@
 .DS_Store
 **/DEzoomcamp.code-workspace
 **/ny_taxi_postgres_data/*
+**/.ipynb_checkpoints/
+**/Docker_SQL/*.csv

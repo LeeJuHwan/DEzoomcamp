@@ -42,9 +42,95 @@ Data Engineering Zoomcamp 2023
     ```
     <img width="783" alt="image" src="https://user-images.githubusercontent.com/118493627/214563072-a0c3cbb0-d36e-4dfa-b208-6fbdb6fb410e.png">
 
-#### Error를 해결한 사례
+- [ ] pgcli(Postgres command line interface)
+    > this is python librar.y use for postgresql connect
+
+    ```
+    1. pip instsall pgcli
+
+    2. brew install pgcli (Mac OS)
+    ```
+    - brew를 통해 설치 하였다.
+    <p>
+
+    #### 포트 접속
+    ```
+    pgcli -h localhost -p 5432 -u root -d ny_taxi
+    ```
+    - postgres cli 접속
+
+        - -h : 호스트
+        - -p : 포트 번호
+        - -u : 유저 이름
+        - -d : 데이터 베이스 이름(도커 컨테이너 실행시 입력한 db이름)
+    - <strong> services에서 설정 된 비밀번호인 [`root`]를 입력하였다.</strong>
+
+    #### 데이터베이스 조회
+    ```
+    \dt
+    ```
+    <img width="269" alt="image" src="https://user-images.githubusercontent.com/118493627/214603417-bd04ecef-7c27-4bfa-834b-7322974bdcdb.png">
+
+    #### 데이터 확인 및 불러오기 by Jupyter Notebook
+    - [ ] 자료 준비
+    - [백업 자료 레포지토리](https://github.com/DataTalksClub/nyc-tlc-data/releases/tag/yellow)
+
+    - 데이터 불러오기
+        ```
+        wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz
+        ```
+    - 압축해제
+        ```
+        gzip -d yellow_tripdata_2021-01.csv.gz
+        ```
+
+    - 샘플 데이터 추출 후 확인하기
+        ```
+        head -n 100 yellow_tripdata_2021-01.csv > yello_head.csv
+        ```
+
+    - CLI 환경에서 CSV파일을 열지 않고 record 수 확인하기
+        ```
+        wc -l yellow_tripdata_2021-01.csv
+        ```
+
+    - 컬럼의 의미 파악하기
+        <img width="710" alt="image" src="https://user-images.githubusercontent.com/118493627/214612832-b6bb82b7-6e51-4f94-857f-61fc5816db52.png">
+
+        - VendorID는 TPEP providor를 의미한다고 한다.
+            - 1은 Creative Mobile Tech 회사, 2는 VeriFone Inc. 회사.
+        - tpep_pickup_datetime은 승객을 태운 시점
+        - tpep_dropoff_datetime은 승객을 내려준 시점
+        - Passenger_count는 탑승한 승객 수
+        - Trip distance는 택시미터에 찍힌 여행 거리를 의미
+        - PULocationID는 승객이 탄 곳의 위치(Taxi zone) id를 의미
+        - DOLocationID는 승객이 내린 곳의 위치(Taxi zone) id를 의미
+            - 이 위치 id에 해당하는 위치를 확인하기 위해서는 Taxi zone lookup table 데이터가 필요하다.
+            - <u>Taxi zone lookup table</u> 데이터 불러오기
+                ```
+                wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/misc/taxi_zone_lookup.csv
+                ```
+
+        - [참고 블로그 : 번역 해주셔서 감사합니다](https://velog.io/@dainlinda/Week-1-%EA%B8%B0%EC%B4%88%EC%99%80-%ED%99%98%EA%B2%BD-%EC%85%8B%ED%8C%85)
+    - [ ] 데이터 다루기
+    - 데이터프레임이 갖은 필드의 스키마 가져오기
+        ```
+        pd.io.sql.get_schema(df, name = "yellow_taxi_data")
+        ```
+    - 텍스트로 되어 있는 날짜 데이터 처리
+        ```
+        df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
+        df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
+        ```
+        <img width="758" alt="image" src="https://user-images.githubusercontent.com/118493627/214616709-314cc76e-a8ab-4dfd-a668-d32343873dc0.png">
+
+
+
+### Error를 해결한 사례
 1. port number already use cases
     ```
     sudo lsof -i :5432
     sudo kill -9 [PID]
     ```
+
+
