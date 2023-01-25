@@ -8,4 +8,8 @@ Data Engineering Zoomcamp 2023
     
     [how to run the docker?](./Docker/README.md)
 
+    > Docker_SQL
+
+    [Docker & Postgres Set up](./Docker_SQL/README.md)
+
 
