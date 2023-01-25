@@ -95,6 +95,7 @@ Data Engineering Zoomcamp 2023
         ```
 
     - 컬럼의 의미 파악하기
+    
         <img width="710" alt="image" src="https://user-images.githubusercontent.com/118493627/214612832-b6bb82b7-6e51-4f94-857f-61fc5816db52.png">
 
         - VendorID는 TPEP providor를 의미한다고 한다.
@@ -107,6 +108,7 @@ Data Engineering Zoomcamp 2023
         - DOLocationID는 승객이 내린 곳의 위치(Taxi zone) id를 의미
             - 이 위치 id에 해당하는 위치를 확인하기 위해서는 Taxi zone lookup table 데이터가 필요하다.
             - <u>Taxi zone lookup table</u> 데이터 불러오기
+    
                 ```
                 wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/misc/taxi_zone_lookup.csv
                 ```
