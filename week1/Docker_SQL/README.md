@@ -19,9 +19,9 @@ Data Engineering Zoomcamp 2023
                 3. 데이터베이스 이름 
         
         - volumes
-        ```
-        폴더 경로/ny_taxi_postgres_data:/var/lib/postgresql/data
-        ```
+            ```
+            폴더 경로/ny_taxi_postgres_data:/var/lib/postgresql/data
+            ```
             - volume이란?
                 - 로컬 파일 시스템을 컨테이너의 파일과 매핑 시켜주는 역할을 한다.
             - 도커는 상태를 저장 하지 않기 때문에 다시 컨테이너를 불러오면 데이터를 잃게 된다.
