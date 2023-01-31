@@ -115,7 +115,7 @@ Data Engineering Zoomcamp 2023
 
         - [참고 블로그 : 번역 해주셔서 감사합니다](https://velog.io/@dainlinda/Week-1-%EA%B8%B0%EC%B4%88%EC%99%80-%ED%99%98%EA%B2%BD-%EC%85%8B%ED%8C%85)
     - [ ] 데이터 다루기
-    - 데이터프레임이 갖은 필드의 스키마 가져오기
+    - 데이터프레임이 갖고 있는 필드의 스키마 가져오기
         ```
         pd.io.sql.get_schema(df, name = "yellow_taxi_data")
         ```
@@ -126,6 +126,43 @@ Data Engineering Zoomcamp 2023
         ```
         <img width="758" alt="image" src="https://user-images.githubusercontent.com/118493627/214616709-314cc76e-a8ab-4dfd-a668-d32343873dc0.png">
 
+    - 데이터 volume이 많을 때 
+        - db가 어떻게 반응 할지 모르기 때문에 iterator 형태로 입력 하는 방법
+        - 사전 작업
+        ```
+        df_iter = pd.read_csv("yellow_tripdata_2021-01.csv", iterator= True, chunksize=100000)
+        ```
+        - chunksize = "데이터 덩어리" 몇 개의 데이터를 한 번의 실행으로 다룰지 결정
+        - iterator = 객체 형식으로 데이터 타입을 만들지 결정
+        - iteraotr 호출 
+        ```
+        df = next(df_iter)
+
+        len(df)
+        >> 100000
+        ```
+        - 이 명령어를 사용하면 우리가 데이터를 읽을 때 전체를 읽어오는 게 아니라 한번에 100000개 row로 이루어진 데이터 개수의 하나를 읽어온다
+        - df_iter를 호출하면 일반 판다스 데이터 프레임 형태가 아닌 객체 형태를 나타낸다.`<pandas.io.parsers.readers.TextFileReader at 0x7fc138875a00>`
+
+    #### 데이터를 chunksize로 불러오기
+    - 객체를 호출하면서 시간 측정 하기
+        ```
+        while True :
+        t_start = time()
+        
+        df = next(df_iter)
+        
+        df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
+        df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
+        
+        df.to_sql(name = "yellow_taxi_data", con = engine, if_exists="append")
+        
+        t_end = time()
+        
+        print(f" 다른 데이터 덩어리를 넣었을 때 걸리는 시간 {t_end - t_start:.3f}")
+        ```
+        - 데이터베이스를 모두 삽입하고 난 결과
+        <img width="508" alt="image" src="https://user-images.githubusercontent.com/118493627/215664064-a0d43a51-90d9-4c98-ab62-f67fec2d32e7.png">
 
 
 ### Error를 해결한 사례
