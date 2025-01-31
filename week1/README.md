@@ -1,18 +1,18 @@
 # DEzoomcamp
-Data Engineering Zoomcamp 2023
+Data Engineering Zoomcamp 2025
 
-## TIL
+## Chapter
 - [ ] Basic & Set up
 
     > Docker
     
-    [how to run the docker?](./Docker/README.md)
+    [Introduction to docker?](./Docker/README.md)
 
     > Docker_SQL
 
-    [Docker & Postgres set up](./Docker_SQL/README.md)
+    [Ingesting NY taxi data to postgres](./Docker_SQL/README.md)
 
     > Docker_PgAdmin
     
-    [GUI postgresql start](./PgAdmin/README.md)
+    [Connecting pgadmin and postgres](./PgAdmin/README.md)
 
