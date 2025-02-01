@@ -47,7 +47,7 @@ Data Engineering Zoomcamp 2025
 
 ### Commands
 
-[!IMPORTANT]
+> [!IMPORTANT]
 
 ***how to run pipeline command***
 
@@ -65,7 +65,7 @@ python3 ingest_data.py \
     --url=${URL}
 ```
 
-[!IMPORTANT]
+> [!IMPORTANT]
 
 ***Docker build and run we're pipeline script***
 
@@ -92,7 +92,7 @@ docker run -it \
 
 ### Search keywords
 
-[!NOTE]
+> [!NOTE]
 ***argparse***
 
 - "*How to run script use arguments*"
@@ -100,19 +100,21 @@ docker run -it \
 > Google search keyword: ***"argparse"***
 > Ref: [Python docs](https://docs.python.org/ko/3.13/library/argparse.html)
 
-[!NOTE]
+> [!NOTE]
 ***main block***
 
 - "*Why need `if __name__ == "__main__"` block?*"
 
 > Google search keyword: ***"main block python"***
+> 
 > Ref: [Python docs](https://docs.python.org/3/library/__main__.html)
 
-[!NOTE]
+> [!NOTE]
 ***psycopg2***
 
 - "*Why install `psycopg2` in Dockerfile*"
 
 > Google search keyword: ***"psycopg2"***
+> 
 > Ref: [Python docs](https://docs.python.org/3/library/__main__.html)
 

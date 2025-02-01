@@ -2,7 +2,7 @@
 
 ### PG Admin GUI by docker image
 
-[!NOTE]
+> [!NOTE]
 > Google search keyword: ***"pgadmin docker "***
 > Ref: [Docker hub](https://hub.docker.com/r/dpage/pgadmin4/)
 
@@ -16,7 +16,7 @@ dpage/pgadmin4
 
 ### Create network
 
-[!NOTE]
+> [!NOTE]
 > Google search keyword: ***"docker network create"***
 > Ref: [Docker docs](https://docs.docker.com/reference/cli/docker/network/create/)
 
