@@ -9,5 +9,5 @@ Data Engineering Zoomcamp 2025
 > - [Ingesting NY taxi data to postgres](./chapter2/README.md)
 >   
 > - [Connecting pgadmin and postgres](./chapter3/README.md)
-> -
+> 
 > - [Dockerizing the ingestion script](./chapter4/README.md)
