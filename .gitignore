@@ -5,3 +5,9 @@
 **/.ipynb_checkpoints/
 **/*.csv
 **/*.gz
+**/**/**/*.hcl
+**/**/**/*.backup
+**/**/**/*.terraformrc
+**/**/**/terraform.rc
+**/**/**/.terraform/*
+**/**/**/*.tfstate
