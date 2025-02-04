@@ -1,17 +1,12 @@
-locals {
-  project_name = "de-zoomcamp-2025-449815"
-  region_name  = "asia-northeast3"
-}
-
 provider "google" {
-  project = local.project_name
-  region  = local.region_name
+  project = var.project
+  region  = var.region
 }
 
 
 resource "google_storage_bucket" "demo-bucket" {
-  name          = "${local.project_name}-bucket"
-  location      = local.region_name
+  name          = var.gcs_bucket_name
+  location      = var.region
   force_destroy = true
 
   lifecycle_rule {
@@ -22,4 +17,9 @@ resource "google_storage_bucket" "demo-bucket" {
       type = "AbortIncompleteMultipartUpload"
     }
   }
+}
+
+resource "google_bigquery_dataset" "demo-dataset" {
+  dataset_id = var.bq_dataset_name
+  location   = var.location
 }
