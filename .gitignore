@@ -11,3 +11,4 @@
 **/**/**/terraform.rc
 **/**/**/.terraform/*
 **/**/**/*.tfstate
+**/**/**/.env
