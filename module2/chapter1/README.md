@@ -55,17 +55,17 @@ cp <path/to/your/service-account-authkey>.json ~/.google/credentials/google_cred
 
 2. 에어플로우 공식 이미지를 다운로드 받습니다.
 
-```shell
-mkdir airflow && cd airflow
-curl -LfO 'https://airflow.apache.org/docs/apache-airflow/stable/docker-compose.yaml'
-```
+    ```shell
+    mkdir airflow && cd airflow
+    curl -LfO 'https://airflow.apache.org/docs/apache-airflow/stable/docker-compose.yaml'
+    ```
 
 3. 리눅스에서 도커 컴포즈를 활용 하여 실행 할 경우 유저 권한을 설정 해야 합니다. 유저 권한을 별도로 설정하지 않는 경우 `dag`, `log.`, `plugin` 과 같은 특정 에어플로우 디렉터리에 생성된 파일은 루트 사용자의 권한으로 생성 됩니다.
 
-```shell
-mkdir -p ./dags ./logs ./plugins
-echo -e "AIRFLOW_UID=$(id -u)" > .env
-```
+    ```shell
+    mkdir -p ./dags ./logs ./plugins
+    echo -e "AIRFLOW_UID=$(id -u)" > .env
+    ```
 
 - dags : DAG 파일 보관(Airflow를 활용한 배치 스크립트 파일)
 
@@ -92,7 +92,7 @@ echo -e "AIRFLOW_UID=$(id -u)" > .env
 > [!CAUTION]
 > "*You are running pip as root. Please use 'airflow' user to run pip!*"
 > - `USER root` 로 소프트웨어를 업데이트 하고 필요한 패키지를 설치한 뒤 파이썬 라이브러리를 설치하는데 이 때 에어플로우를 설치할 때 에러가 발생한다. 그렇기 때문에 해당 라이브러리를 설치할 때만 에어플로우 유저로 접근하고 그 외 작업은 다시 루트 유저로 진행 하면 된다.
-> -[Ref](https://stackoverflow.com/questions/72102582/airflowdocker-composeyou-are-running-pip-as-root-please-use-user-to-run-pip) 
+> - [Ref](https://stackoverflow.com/questions/72102582/airflowdocker-composeyou-are-running-pip-as-root-please-use-user-to-run-pip) 
 > 
 > "*No module named 'imp'*"
 > - Google Cloud CLI 를 설치하는 과정에서 해당 모듈을 찾지 못했다. `322.0.0` 버전에서 해당 SDK를 설치할 때 사용했던 모듈이지만 파이썬 버전이 올라오면서 모듈이 제거 되었다. SDK 버전을 최신 버전으로 변경 하면 된다.
