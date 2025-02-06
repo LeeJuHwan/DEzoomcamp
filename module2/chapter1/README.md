@@ -67,11 +67,11 @@ cp <path/to/your/service-account-authkey>.json ~/.google/credentials/google_cred
     echo -e "AIRFLOW_UID=$(id -u)" > .env
     ```
 
-- dags : DAG 파일 보관(Airflow를 활용한 배치 스크립트 파일)
+    - dags : DAG 파일 보관(Airflow를 활용한 배치 스크립트 파일)
 
-- logs : Task 실행 시, 혹은 Scheduler의 로그 보관
+    - logs : Task 실행 시, 혹은 Scheduler의 로그 보관
 
-- plugins : 커스텀 Plugin 보관(Dag에서 사용할 수 있는 유틸 함수)
+    - plugins : 커스텀 Plugin 보관(Dag에서 사용할 수 있는 유틸 함수)
 
 4. GCloud CLI 툴을 설치하는 도커 파일을 별도로 구성하여 해당 도커 파일을 활용 하여 도커 컴포즈를 구성합니다.
     - Ref: [Airflow Docs](https://airflow.apache.org/docs/docker-stack/recipes.html#google-cloud-sdk-installation)

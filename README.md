@@ -12,3 +12,5 @@ Data Engineering Zoomcamp 2025
 
 ## Module 2: Workflow Orchestration
 - [details](./module2/README.md)
+    - Introduction to Workflow orchestration
+    - Setup Airflow environment with Docker Compose
